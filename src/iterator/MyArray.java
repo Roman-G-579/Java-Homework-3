@@ -1,21 +1,27 @@
 package iterator;
 
+import java.util.NoSuchElementException;
+
 public class MyArray implements MyIterator {
 
     private int[] array;
-    private int index = 0;
+    private int index = -1;
 
-    MyArray(int[] array) {
+    public MyArray(int[] array) {
         this.array = array;
     }
 
     @Override
     public int next() {
-        return array[index++];
+        index++;
+        if (index == array.length) {
+            throw new NoSuchElementException();
+        }
+        return array[index];
     }
 
     @Override
     public boolean hasNext() {
-        return index != array.length;
+        return (index + 1) != array.length;
     }
 }

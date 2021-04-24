@@ -9,7 +9,7 @@ public class Circle extends BaseImage {
 
     public Circle(int width, int height, int centerX,
                   int centerY, int radius, RGB center, RGB outside) {
-        super(width, height, new RGB(1, 1, 1));
+        super(width, height, RGB.WHITE);
         this.centerX = centerX;
         this.centerY = centerY;
         this.radius = radius;

@@ -1,27 +1,27 @@
 package iterator;
 
-    public class Fibonacci implements MyIterator {
+public class Fibonacci implements MyIterator {
 
-        private int upperBound;
-        private int last = 1;
-        private int secondToLast = 0;
+    private int upperBound;
+    private int last;
+    private int secondToLast;
 
-        Fibonacci(int upperBound) {
-            this.upperBound = upperBound;
-        }
-
-        @Override
-        public int next() {
-            int sum = last + secondToLast;
-            secondToLast = last;
-            last = sum;
-            return sum;
-        }
-
-        @Override
-        public boolean hasNext() {
-            return this.next() == upperBound;
-        }
-
-
+    public Fibonacci(int upperBound) {
+        this.upperBound = upperBound;
+        last = 1;
+        secondToLast = 0;
     }
+
+    @Override
+    public int next() {
+        int sum = last + secondToLast;
+        secondToLast = last;
+        last = sum;
+        return sum;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return next() <= upperBound;
+    }
+}
