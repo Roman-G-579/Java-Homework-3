@@ -6,4 +6,3 @@ public interface MyIterator {
     int next();
 }
 
-}

@@ -1,6 +1,6 @@
 package iterator;
 
-public class MyArray {
+public class MyArray implements MyIterator {
 
     private int[] array;
     private int index = 0;
