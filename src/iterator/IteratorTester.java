@@ -41,7 +41,7 @@ class BaseIteratorTester extends Tester {
 	void checkIt(MyIterator it, int[] a, String msg) {
 		for (int i = 0; i < a.length; i++) {
 			checkEq(it.hasNext(), true, msg + " : " + i + "-th hasNext() ");
-			checkEq(it.next(), a[i], msg + " : " + i + "-th next() ");
+ 			checkEq(it.next(), a[i], msg + " : " + i + "-th next() ");
 		}
 		checkEq(it.hasNext(), false, msg + "last hasNext() ");
 	}	

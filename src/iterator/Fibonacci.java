@@ -3,25 +3,25 @@ package iterator;
 public class Fibonacci implements MyIterator {
 
     private int upperBound;
-    private int last;
-    private int secondToLast;
+    private int previousNum;
+    private int nextNum;
 
     public Fibonacci(int upperBound) {
         this.upperBound = upperBound;
-        last = 1;
-        secondToLast = 0;
+        previousNum = 0;
+        nextNum = 1;
     }
 
     @Override
     public int next() {
-        int sum = last + secondToLast;
-        secondToLast = last;
-        last = sum;
-        return sum;
+        int sum = previousNum + nextNum;
+        previousNum = nextNum;
+        nextNum = sum;
+        return previousNum;
     }
 
     @Override
     public boolean hasNext() {
-        return next() <= upperBound;
+        return nextNum <= upperBound;
     }
 }
