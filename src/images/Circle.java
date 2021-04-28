@@ -24,7 +24,7 @@ public class Circle extends BaseImage {
     }
 
     public RGB get(int x, int y) {
-        double distance = Math.sqrt(Math.pow((x - centerX), 2) + Math.pow((y - centerY), 2));
-        return RGB.mix(center, outside, distance / radius);
+        double distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+        return distance > radius ? RGB.mix(outside, center, distance / radius) : RGB.mix(outside, center, radius);
     }
 }

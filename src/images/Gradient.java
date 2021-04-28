@@ -12,6 +12,6 @@ public class Gradient extends BaseImage {
     }
 
     public RGB get(int x, int y) {
-        return RGB.mix(start, end, (double) (x) / getWidth());
+        return RGB.mix(start, end, 1 - (double) (x) / getWidth());
     }
 }

@@ -118,27 +118,27 @@ public class ImagesTester extends BaseImageTester {
 		checkEqRGB(circle.get(4, 7), new RGB(0.29899495, 0.643431, 0.201368), "inside circle");
 		checkEqRGB(circle.get(19, 9), g2, "outside circle");
 	}
-//
-//	void testFilter() {
-//		initPublishedTest(Filter.class);
-//		Image i = new Filter(circle, g3);
-//		checkEqRGB(i.get(2, 5), new RGB(0.149095, 0.318177, 0.080242), "check");
-//	}
-//
-//	void testInvert() {
-//		initPublishedTest(Invert.class);
-//		Image i = new Invert(circle);
-//		checkEqRGB(i.get(2, 5), new RGB(0.503015, 0.469706, 0.617895), "check");
-//	}
-//
-//	void testTranspose() {
-//		initPublishedTest(Transpose.class);
-//		Image i = new Transpose(circle);
-//		checkEq(i.getWidth(), 10, "getWidth");
-//		checkEq(i.getHeight(), 20, "getHeight");
-//		checkEqRGB(i.get(2, 5), new RGB(0.620000, 0.460000, 0.494400), "check");
-//	}
-//
+
+	void testFilter() {
+		initPublishedTest(Filter.class);
+		Image i = new Filter(circle, g3);
+		checkEqRGB(i.get(2, 5), new RGB(0.149095, 0.318177, 0.080242), "check");
+	}
+
+	void testInvert() {
+		initPublishedTest(Invert.class);
+		Image i = new Invert(circle);
+		checkEqRGB(i.get(2, 5), new RGB(0.503015, 0.469706, 0.617895), "check");
+	}
+
+	void testTranspose() {
+		initPublishedTest(Transpose.class);
+		Image i = new Transpose(circle);
+		checkEq(i.getWidth(), 10, "getWidth");
+		checkEq(i.getHeight(), 20, "getHeight");
+		checkEqRGB(i.get(2, 5), new RGB(0.620000, 0.460000, 0.494400), "check");
+	}
+
 //	void testSuperpose() {
 //		initPublishedTest(Superpose.class);
 //		Image i = new Superpose(circle, grad);
@@ -149,7 +149,7 @@ public class ImagesTester extends BaseImageTester {
 //		checkEqRGB(i.get(18, 1), new RGB(0.900000, 0.300000, 0.750000), "check3");
 //		checkEqRGB(i.get(1, 18), new RGB(0.360000, 0.570000, 0.264000), "check4");
 //	}
-//
+
 //	void testMix() {
 //		initPublishedTest(Mix.class);
 //		Image i = new Mix(circle, grad, 0.3);
@@ -160,7 +160,7 @@ public class ImagesTester extends BaseImageTester {
 //		checkEqRGB(i.get(18, 1), new RGB(0.900000, 0.300000, 0.750000), "check3");
 //		checkEqRGB(i.get(1, 18), new RGB(0.360000, 0.570000, 0.264000), "check4");
 //	}
-//
+
 //	void testTwoColorImage() {
 //		initPublishedTest(TwoColorImage.class);
 //		Image i = new TwoColorImage(10, 20, RGB.RED, RGB.GREEN, new TwoDFunc() {
@@ -172,7 +172,7 @@ public class ImagesTester extends BaseImageTester {
 //		checkEqRGB(i.get(4, 7), new RGB(0.000000, 1.000000, 0.000000), "check1");
 //		checkEqRGB(i.get(8, 11), new RGB(0.902113, 0.097887, 0.000000), "check2");
 //	}
-//
+
 //	void testComplex() {
 //		initPublishedTest("complex example");
 //		Image i1 = new Gradient(500, 500, RGB.BLUE, RGB.BLACK);
@@ -202,12 +202,12 @@ public class ImagesTester extends BaseImageTester {
 	// Here you can choose which tests to run.
 
 	public void myTests() {
-//		testStructure();
+		testStructure();
 		testRGB();
 		testGradient();
 		testCircle();
-//		testFilter();
-//		testInvert();
+		testFilter();
+		testInvert();
 //		testTranspose();
 //		testSuperpose();
 //		testMix();
