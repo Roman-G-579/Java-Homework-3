@@ -1,6 +1,6 @@
 package images;
 
-public class Filter implements Image {
+public class Filter extends ImageDecorator {
 
     private Image base;
     private RGB filter;
@@ -10,18 +10,8 @@ public class Filter implements Image {
         this.filter = filter;
     }
 
-    @Override
-    public int getWidth() {
-        return 0;
-    }
-
-    @Override
-    public int getHeight() {
-        return 0;
-    }
-
-    @Override
-    public RGB get(int x, int y) {
+    public RGB get(){
         return null;
     }
+
 }

@@ -21,5 +21,4 @@ public abstract class BaseImage implements Image {
     public int getHeight() {
         return height;
     }
-
 }

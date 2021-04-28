@@ -104,20 +104,20 @@ public class ImagesTester extends BaseImageTester {
 		checkEqRGB(RGB.GREEN, new RGB(0, 1, 0), "GREEN");
 		checkEqRGB(RGB.BLUE, new RGB(0, 0, 1), "BLUE");
 	}
-//
-//	void testGradient() {
-//		initPublishedTest(Gradient.class);
-//		Image i = new Gradient(20, 10, g1, g2);
-//		checkEq(i.getWidth(), 20, "getWidth");
-//		checkEq(i.getHeight(), 10, "getHeight");
-//		checkEqRGB(i.get(3, 2), new RGB(0.305, 0.64, 0.20685), "check1");
-//	}
-//
-//	void testCircle() {
-//		initPublishedTest(Circle.class);
-//		checkEqRGB(circle.get(4, 7), new RGB(0.29899495, 0.643431, 0.201368), "inside circle");
-//		checkEqRGB(circle.get(19, 9), g2, "outside circle");
-//	}
+
+	void testGradient() {
+		initPublishedTest(Gradient.class);
+		Image i = new Gradient(20, 10, g1, g2);
+		checkEq(i.getWidth(), 20, "getWidth");
+		checkEq(i.getHeight(), 10, "getHeight");
+		checkEqRGB(i.get(3, 2), new RGB(0.305, 0.64, 0.20685), "check1");
+	}
+
+	void testCircle() {
+		initPublishedTest(Circle.class);
+		checkEqRGB(circle.get(4, 7), new RGB(0.29899495, 0.643431, 0.201368), "inside circle");
+		checkEqRGB(circle.get(19, 9), g2, "outside circle");
+	}
 //
 //	void testFilter() {
 //		initPublishedTest(Filter.class);
@@ -204,8 +204,8 @@ public class ImagesTester extends BaseImageTester {
 	public void myTests() {
 //		testStructure();
 		testRGB();
-//		testGradient();
-//		testCircle();
+		testGradient();
+		testCircle();
 //		testFilter();
 //		testInvert();
 //		testTranspose();

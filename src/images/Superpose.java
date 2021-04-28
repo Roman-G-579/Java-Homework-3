@@ -1,6 +1,6 @@
 package images;
 
-public class Superpose extends BinaryImageDecorator {
+public class Superpose implements Image {
 
     private Image base1;
     private Image base2;
