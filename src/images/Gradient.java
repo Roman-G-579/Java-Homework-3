@@ -6,7 +6,7 @@ public class Gradient extends BaseImage {
     private RGB end;
 
     public Gradient(int width, int height, RGB start, RGB end) {
-        super(width, height, start);
+        super(width, height);
         this.start = start;
         this.end = end;
     }

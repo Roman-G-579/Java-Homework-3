@@ -71,7 +71,6 @@ public class RGB {
         return "<" +
                 String.format("%.4f", red) + ", " +
                 String.format("%.4f", green) + ", " +
-                String.format("%.4f", blue) +
-                ">";
+                String.format("%.4f", blue) + ">";
     }
 }

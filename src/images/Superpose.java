@@ -1,35 +1,28 @@
 package images;
 
-public class Superpose implements Image {
-
-    private Image base1;
-    private Image base2;
-    private int width;
-    private int height;
+public class Superpose extends BinaryImageDecorator {
 
     public Superpose(Image base1, Image base2) {
-        this.base1 = base1;
-        this.base2 = base2;
-
-        width = base1.getWidth() > base2.getWidth() ?
-                width = base1.getWidth() : base2.getWidth();
-
-        height = base1.getHeight() > base2.getHeight() ?
-                width = base1.getHeight() : base2.getHeight();
-    }
-
-    @Override
-    public int getWidth() {
-        return 0;
-    }
-
-    @Override
-    public int getHeight() {
-        return 0;
+        super(base1, base2);
     }
 
     @Override
     public RGB get(int x, int y) {
-        return null;
+        int imageOneWidth = base1.getWidth();
+        int imageOneHeight = base1.getHeight();
+        int imageTwoWidth = base2.getWidth();
+        int imageTwoHeight = base2.getHeight();
+
+        //if x and y exceeds both images
+        if (x > imageOneWidth && y > imageOneHeight) {
+            if (x > imageTwoWidth && y > imageTwoHeight) {
+                return RGB.BLACK;
+            }
+            return base2.get(x, y);
+        }
+        if (x > imageTwoHeight) {
+            return base1.get(x, y);
+        }
+        return RGB.superpose(base1.get(x, y), base2.get(x, y));
     }
 }

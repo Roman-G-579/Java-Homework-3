@@ -1,28 +1,22 @@
 package images;
 
-public abstract class ImageDecorator implements Image{
-
+public abstract class ImageDecorator implements Image {
 
     private int width;
     private int height;
 
-    public ImageDecorator(){
-
+    public ImageDecorator(int width, int height) {
+        this.width = width;
+        this.height = height;
     }
 
     @Override
-    public int getWidth(){
-     return width;
+    public int getWidth() {
+        return width;
     }
 
     @Override
-    public int getHeight(){
+    public int getHeight() {
         return height;
     }
-
-    @Override
-    public RGB get(int x, int y){
-        return null;
-    }
-
 }
