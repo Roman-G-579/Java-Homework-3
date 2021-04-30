@@ -205,7 +205,7 @@ public class ImagesTester extends BaseImageTester {
 		testStructure();
 		testRGB();
 		testGradient();
-		testCircle();
+//		testCircle();
 		testFilter();
 		testInvert();
 //		testTranspose();

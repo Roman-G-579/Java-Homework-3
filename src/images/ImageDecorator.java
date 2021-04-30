@@ -2,6 +2,7 @@ package images;
 
 public abstract class ImageDecorator implements Image{
 
+
     private int width;
     private int height;
 

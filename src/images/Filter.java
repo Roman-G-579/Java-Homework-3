@@ -10,8 +10,8 @@ public class Filter extends ImageDecorator {
         this.filter = filter;
     }
 
-    public RGB get(){
-        return null;
+    public RGB get() {
+        return base.get().filter();
     }
 
 }
