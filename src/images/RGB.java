@@ -12,8 +12,7 @@ public class RGB {
     private double green;
     private double blue;
 
-    public RGB(double red, double green,
-               double blue) {
+    public RGB(double red, double green, double blue) {
         this.red = red;
         this.green = green;
         this.blue = blue;
