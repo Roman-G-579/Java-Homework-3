@@ -1,8 +1,8 @@
 package circuits;
 
-public class TrueGate extends Gate {
+public class FalseGate extends Gate {
 
-    private TrueGate() {
+    private FalseGate() {
         super(null);
     }
 
@@ -12,16 +12,15 @@ public class TrueGate extends Gate {
 
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
-        return true;
+        return false;
     }
 
-    @Override
     public String getName() {
-        return "T";
+        return "F";
     }
 
-    @Override
     public Gate simplify() {
         return null;
     }
+
 }

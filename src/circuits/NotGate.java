@@ -1,23 +1,19 @@
 package circuits;
 
-public class TrueGate extends Gate {
+public class NotGate extends Gate {
 
-    private TrueGate() {
-        super(null);
-    }
-
-    public static Gate instance() {
-
+    public NotGate(Gate in) {
+        super(new Gate[]{in});
     }
 
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
-        return true;
+        return !func();
     }
 
     @Override
     public String getName() {
-        return "T";
+        return "NOT";
     }
 
     @Override
