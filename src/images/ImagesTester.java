@@ -210,12 +210,12 @@ public class ImagesTester extends BaseImageTester {
         testRGB();
         testGradient();
         testCircle();
-//		testFilter();
-//		testInvert();
-//		testTranspose();
-//		testSuperpose();
-//		testMix();
-//		testTwoColorImage();
-//		testComplex();
+		testFilter();
+		testInvert();
+		testTranspose();
+		testSuperpose();
+		testMix();
+		testTwoColorImage();
+		testComplex();
     }
 }

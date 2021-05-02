@@ -21,16 +21,14 @@ public class Circle extends BaseImage {
         this.radius = radius;
         this.center = center;
         this.outside = outside;
+        centerX = size / 2;
+        centerY = size / 2;
     }
 
     public RGB get(int x, int y) {
-        double xDistance = (double) x / super.getWidth();
-        double yDistance = (double) y / super.getHeight();
 
-        double distance = Math.sqrt(Math.pow(xDistance - (double) centerX / super.getWidth(), 2)
-                + Math.pow((yDistance - (double) centerY / super.getHeight()), 2));
+        double distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
 
-        return distance > radius ? RGB.mix(outside, center, distance / radius) :
-                RGB.mix(outside, center, distance);
+        return distance <= radius ? RGB.mix(outside, center, distance / radius) : outside;
     }
 }

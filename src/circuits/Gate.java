@@ -8,9 +8,9 @@ public abstract class Gate {
         this.inGates = inGates;
     }
 
-    public boolean calc(func) throws CircuitException {
-        return true;
-    }
+//    public boolean calc(func) throws CircuitException {
+//        return true;
+//    }
 
     protected abstract boolean func(boolean[] inValues) throws CircuitException;
 
