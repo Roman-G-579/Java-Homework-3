@@ -14,25 +14,9 @@ public class Mix extends BinaryImageDecorator {
         this.alpha = alpha;
     }
 
-    @Override
     public RGB get(int x, int y) {
 
-        //if x and y inside both images
-        if (x <= imageOneWidth && y <= imageTwoHeight) {
-            return RGB.mix(base1.get(x, y), base2.get(x, y), alpha);
-        }
 
-        //if x and y inside the first image but not the second
-        if (x <= imageOneWidth && y < imageOneHeight) {
-            return base1.get(x, y);
-        }
-
-        //if x and y inside the second image but not the first
-        if (x >= imageOneWidth && x < imageTwoWidth && y <= imageTwoHeight) {
-            return base2.get(x, y);
-        }
-
-        return RGB.BLACK;
     }
 
 }
