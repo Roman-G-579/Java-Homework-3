@@ -21,8 +21,8 @@ public class Circle extends BaseImage {
         this.radius = radius;
         this.center = center;
         this.outside = outside;
-        centerX = size / 2;
-        centerY = size / 2;
+        this.centerX = size / 2;
+        this.centerY = size / 2;
     }
 
     public RGB get(int x, int y) {

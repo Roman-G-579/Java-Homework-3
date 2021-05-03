@@ -5,7 +5,7 @@ public class FalseGate extends Gate {
     private static Gate falseGateInstance = new FalseGate();
 
     private FalseGate() {
-        super(null);
+        super(instance().inGates);
     }
 
     public static Gate instance() {
