@@ -2,16 +2,25 @@ package circuits;
 
 public class VarGate extends Gate {
 
-    String name;
-    Boolean val = null;
+    private String name;
+    private Boolean val = null;
 
     public VarGate(String name) {
         super();
+        this.name = name;
     }
 
     @Override
     public String getName() {
         return "V" + name;
+    }
+
+    @Override
+    public Gate simplify() {
+        if (val == null) {
+            return this;
+        }
+        return val ? TrueGate.instance() : FalseGate.instance();
     }
 
     @Override

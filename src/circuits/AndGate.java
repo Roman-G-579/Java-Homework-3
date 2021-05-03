@@ -10,8 +10,8 @@ public class AndGate extends Gate {
 
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
-        for (Gate inGate: inGates){
-            if (!inGate.func()){
+        for (boolean value : inValues) {
+            if (!value) {
                 return false;
             }
         }

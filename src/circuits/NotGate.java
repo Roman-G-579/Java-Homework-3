@@ -8,7 +8,11 @@ public class NotGate extends Gate {
 
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
-        return !func();
+
+        if (inValues == null) {
+            throw new CircuitException("Error! Not all gates contain values");
+        }
+        return inValues[0] = !inValues[0];
     }
 
     @Override
@@ -18,6 +22,7 @@ public class NotGate extends Gate {
 
     @Override
     public Gate simplify() {
-        return null;
+        return inGates[0] == TrueGate.instance() ? FalseGate.instance() : TrueGate.instance();
     }
 }
+
