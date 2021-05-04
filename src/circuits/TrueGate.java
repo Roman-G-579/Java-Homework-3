@@ -2,14 +2,14 @@ package circuits;
 
 public class TrueGate extends Gate {
 
-    private static Gate trueGateInstance = new TrueGate();
+    private static TrueGate trueGateInstance = null;
 
     private TrueGate() {
-        super(instance().inGates);
+        super(trueGateInstance.inGates);
     }
 
     public static Gate instance() {
-        return trueGateInstance;
+        return trueGateInstance == null ? new TrueGate() : trueGateInstance;
     }
 
     @Override

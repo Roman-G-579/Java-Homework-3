@@ -16,6 +16,7 @@ public class Superpose extends BinaryImageDecorator {
         int base2Width = base2.getWidth();
         int base2Height = base2.getHeight();
 
+        //in case the first image is wider than the second
         if (base1Width > base2Width) {
             //if the coordinate is inside both images
             if (x <= base2Width && y <= base1Height) {
@@ -33,6 +34,8 @@ public class Superpose extends BinaryImageDecorator {
             }
             return RGB.BLACK;
         }
+
+        //in case the second image is wider than the first
         //if the coordinate is inside both images
         if (x <= base1Width && y < base2Height) {
             return RGB.superpose((base1.get(x, y)), base2.get(x, y));

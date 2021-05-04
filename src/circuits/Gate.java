@@ -28,6 +28,7 @@ public abstract class Gate {
     public abstract Gate simplify();
 
     public String toString() {
+        ////// polymorphism
         StringBuilder str = new StringBuilder();
         str.append(getName());
         str.append("[");

@@ -26,14 +26,28 @@ public class OrGate extends Gate {
 
     @Override
     public Gate simplify() {
-        for (int i = 0; i < inGates.length; i++) {
-            if (inGates[i] == TrueGate.instance()) {
-                return inGates[i];
+        int count = 0;
+
+        for (int index = 0; index < inGates.length; index++) {
+            if (inGates[index] == TrueGate.instance()) {
+                return inGates[index];
             }
-            if (i == inGates.length - 2) {
-                return inGates[i].simplify();
+            while (inGates[index] == FalseGate.instance()) {
+                index++;
+                count++;
             }
+            if (index == inGates.length - 1) {
+                return inGates[index].simplify();
+            }
+            if (index == inGates.length) {
+                return FalseGate.instance();
+            }
+            count++;
         }
-        return FalseGate.instance();
+        Gate[] remainingOrGates = new Gate[inGates.length - count];
+        for (int i = 0; i < remainingOrGates.length; i++) {
+            remainingOrGates[i] = inGates[count].simplify();
+        }
+        return new OrGate(remainingOrGates);
     }
 }
