@@ -6,7 +6,7 @@ public class VarGate extends Gate {
     private Boolean val = null;
 
     public VarGate(String name) {
-        super();
+        super(null);
         this.name = name;
     }
 
