@@ -22,6 +22,7 @@ public class MyArray implements MyIterator {
 
     @Override
     public boolean hasNext() {
+        //fix question no 1
         return (index + 1) != array.length;
     }
 }

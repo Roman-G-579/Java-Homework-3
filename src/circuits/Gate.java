@@ -28,23 +28,22 @@ public abstract class Gate {
     public abstract Gate simplify();
 
     public String toString() {
-        ////// polymorphism
+        //if the gate has no inner gates
+        if (inGates.length == 0) {
+            return getName();
+        }
+
         StringBuilder str = new StringBuilder();
         str.append(getName());
         str.append("[");
 
         for (Gate inGate : inGates) {
             if (inGate != null) {
-                str.append(inGate.getName());
+                str.append(inGate);
                 str.append(", ");
             }
         }
-        if (str.charAt(str.length() - 1) == '[') {
-            str.delete(str.length() - 1, str.length() - 1);
-            return str.toString();
-        }
-
-        str.append("]");
-        return str.toString();
+        str.delete(str.length() - 2, str.length());
+        return str.append("]").toString();
     }
 }

@@ -26,12 +26,14 @@ public class OrGate extends Gate {
 
     @Override
     public Gate simplify() {
+        // FIXME: 06/05/2021 fix the algorithm
+
         int count = 0;
 
         for (int index = 0; index < inGates.length; index++) {
-            if (inGates[index] == TrueGate.instance()) {
-                return inGates[index];
-            }
+//            if (inGates[index] == TrueGate.instance()) {
+//                return inGates[index];
+//            }
             while (inGates[index] == FalseGate.instance()) {
                 index++;
                 count++;

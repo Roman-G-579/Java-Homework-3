@@ -29,12 +29,14 @@ public class AndGate extends Gate {
 
     @Override
     public Gate simplify() {
+        // FIXME: 06/05/2021 fix the algorithm
+        
         int count = 0;
 
         for (int index = 0; index < inGates.length; index++) {
-            if (inGates[index] == FalseGate.instance()) {
-                return inGates[index];
-            }
+//            if (inGates[index] == FalseGate.instance()) {
+//                return inGates[index];
+//            }
             while (inGates[index] == TrueGate.instance()) {
                 index++;
                 count++;

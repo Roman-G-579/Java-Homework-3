@@ -2,10 +2,10 @@ package circuits;
 
 public class FalseGate extends Gate {
 
-    private static FalseGate falseGateInstance = null;
+    private static FalseGate falseGateInstance = new FalseGate();
 
     private FalseGate() {
-        super(falseGateInstance.inGates);
+        super(new Gate[]{});
     }
 
     public static Gate instance() {
