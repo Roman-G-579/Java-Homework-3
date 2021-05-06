@@ -29,30 +29,38 @@ public class AndGate extends Gate {
 
     @Override
     public Gate simplify() {
-        // FIXME: 06/05/2021 fix the algorithm
-        
-        int count = 0;
 
-        for (int index = 0; index < inGates.length; index++) {
-//            if (inGates[index] == FalseGate.instance()) {
-//                return inGates[index];
-//            }
-            while (inGates[index] == TrueGate.instance()) {
-                index++;
-                count++;
-            }
-            if (index == inGates.length - 1) {
-                return inGates[index];
-            }
-            if (index == inGates.length) {
-                return TrueGate.instance();
+        //checks whether there is a false gate
+        for (Gate inGate : inGates) {
+            if (inGate.simplify() instanceof FalseGate) {
+                return FalseGate.instance();
             }
         }
-        Gate[] remainingAndGates = new Gate[inGates.length - count];
-        for (int i = 0; i < remainingAndGates.length; i++) {
-            remainingAndGates[i] = inGates[count].simplify();
+
+        // skips all the true gates
+        int index = 0;
+        while (index < inGates.length && inGates[index].simplify() instanceof TrueGate) {
+            index++;
         }
-        return new OrGate(remainingAndGates);
+
+        //if only one gate remains, returns it
+        if (index == inGates.length - 1) {
+            return inGates[index].simplify();
+        }
+
+        // if no gate left, returns true gate
+        if (index == inGates.length) {
+            return TrueGate.instance();
+        }
+
+        //returns the gate in a simplified state
+        Gate[] remainingAndGates = new Gate[inGates.length - index];
+        for (int i = 0; i < remainingAndGates.length; i++, index++) {
+            if (!(inGates[index].simplify() instanceof TrueGate)) {
+                remainingAndGates[i] = inGates[index].simplify();
+            }
+        }
+        return new AndGate(remainingAndGates);
     }
 }
 

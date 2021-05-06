@@ -22,7 +22,10 @@ public class NotGate extends Gate {
 
     @Override
     public Gate simplify() {
-        return inGates[0] == TrueGate.instance() ? FalseGate.instance() : TrueGate.instance();
+        if (inGates[0].simplify() instanceof VarGate) {
+            return this;
+        }
+        return inGates[0] instanceof TrueGate ? FalseGate.instance() : TrueGate.instance();
     }
 }
 

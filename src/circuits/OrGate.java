@@ -26,29 +26,36 @@ public class OrGate extends Gate {
 
     @Override
     public Gate simplify() {
-        // FIXME: 06/05/2021 fix the algorithm
 
-        int count = 0;
-
-        for (int index = 0; index < inGates.length; index++) {
-//            if (inGates[index] == TrueGate.instance()) {
-//                return inGates[index];
-//            }
-            while (inGates[index] == FalseGate.instance()) {
-                index++;
-                count++;
+        //checks whether one of the inputs is a true gate
+        for (Gate inGate : inGates) {
+            if (inGate.simplify() instanceof TrueGate) {
+                return TrueGate.instance();
             }
-            if (index == inGates.length - 1) {
-                return inGates[index].simplify();
-            }
-            if (index == inGates.length) {
-                return FalseGate.instance();
-            }
-            count++;
         }
-        Gate[] remainingOrGates = new Gate[inGates.length - count];
-        for (int i = 0; i < remainingOrGates.length; i++) {
-            remainingOrGates[i] = inGates[count].simplify();
+
+        // skips all the false gates
+        int index = 0;
+        while (index < inGates.length && inGates[index].simplify() instanceof TrueGate) {
+            index++;
+        }
+
+        //if only one get remains, returns it
+        if (index == inGates.length - 1) {
+            return inGates[index].simplify();
+        }
+        //if no gate left, returns false
+        if (index == inGates.length) {
+            return FalseGate.instance();
+        }
+
+        //simplifies the remaining gates
+        Gate[] remainingOrGates = new Gate[inGates.length - index];
+        for (int i = 0; i < remainingOrGates.length; i++, index++) {
+            //skips all the remaining false gates
+            if (!(inGates[index].simplify() instanceof FalseGate)) {
+                remainingOrGates[i] = inGates[index].simplify();
+            }
         }
         return new OrGate(remainingOrGates);
     }
