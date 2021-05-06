@@ -2,14 +2,17 @@ package circuits;
 
 public class FalseGate extends Gate {
 
-    private static FalseGate falseGateInstance = new FalseGate();
+    private static FalseGate falseGateInstance = null;
 
     private FalseGate() {
         super(new Gate[]{});
     }
 
     public static Gate instance() {
-        return falseGateInstance == null ? new FalseGate() : falseGateInstance;
+        if (falseGateInstance == null) {
+            falseGateInstance = new FalseGate();
+        }
+        return falseGateInstance;
     }
 
     @Override
