@@ -50,10 +50,6 @@ public class OrGate extends Gate {
             index++;
         }
 
-        //if only one gate remains, returns it
-        if (index == inGates.length - 1) {
-            return inGates[index].simplify();
-        }
         //if no gate left, returns false
         if (index == inGates.length) {
             return FalseGate.instance();

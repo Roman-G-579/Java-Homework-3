@@ -52,11 +52,6 @@ public class AndGate extends Gate {
             index++;
         }
 
-        //if only one gate remains, returns it
-        if (index == inGates.length - 1) {
-            return inGates[index].simplify();
-        }
-
         // if no gate left, returns true gate
         if (index == inGates.length) {
             return TrueGate.instance();
