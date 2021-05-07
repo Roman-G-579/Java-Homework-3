@@ -65,8 +65,7 @@ public class AndGate extends Gate {
                 remainingAndGates[i] = inGates[index].simplify();
             }
         }
-        Gate banana = new AndGate(remainingAndGates);
-        return banana;
+        return new AndGate(remainingAndGates);
     }
 }
 

@@ -64,7 +64,6 @@ public class OrGate extends Gate {
                 remainingOrGates[i] = inGates[index].simplify();
             }
         }
-        Gate orange = new OrGate(remainingOrGates);
-        return orange;
+        return new OrGate(remainingOrGates);
     }
 }
