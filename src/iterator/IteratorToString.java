@@ -2,6 +2,7 @@ package iterator;
 
 public class IteratorToString {
 
+    //prints the iterations using the proper formatting
     public static String toString(MyIterator it) {
         StringBuilder str = new StringBuilder();
         str.append("[");

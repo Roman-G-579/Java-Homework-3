@@ -10,6 +10,7 @@ public class Fibonacci implements MyIterator {
         this.upperBound = upperBound;
     }
 
+    //returns the next value in the fibonacci series
     @Override
     public int next() {
         int sum = currentNum + nextNum;
@@ -22,6 +23,7 @@ public class Fibonacci implements MyIterator {
         return currentNum;
     }
 
+    //checks whether the next value in the fibonacci sequence is inside the determined bounds
     @Override
     public boolean hasNext() {
         return nextNum <= upperBound;

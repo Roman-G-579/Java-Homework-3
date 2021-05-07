@@ -12,6 +12,10 @@ public class Mix extends BinaryImageDecorator {
         this.base2 = base2;
     }
 
+    //returns the color at the given coordinate of a 4 tone image,
+    //whereas 2 colors are given by the base images,
+    //one color is a mix of the two,
+    //and one color is the space between the two images
     public RGB get(int x, int y) {
         int base1Width = base1.getWidth();
         int base1Height = base1.getHeight();

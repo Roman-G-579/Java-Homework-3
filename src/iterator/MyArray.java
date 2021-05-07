@@ -11,6 +11,7 @@ public class MyArray implements MyIterator {
         this.array = array;
     }
 
+    //prints the next element of the array
     @Override
     public int next() {
         index++;
@@ -20,6 +21,7 @@ public class MyArray implements MyIterator {
         return array[index];
     }
 
+    //checks whether the array is not full
     @Override
     public boolean hasNext() {
         return (index + 1) != array.length;

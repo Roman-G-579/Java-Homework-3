@@ -12,6 +12,7 @@ public class TwoColorImage extends BaseImage {
         this.func = func;
     }
 
+    //returns the color of the 2 color image at the current coordinate
     @Override
     public RGB get(int x, int y) {
         double alpha = func.f((double) x / super.getWidth(), (double) y / super.getHeight());

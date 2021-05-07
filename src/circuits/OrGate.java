@@ -6,6 +6,7 @@ public class OrGate extends Gate {
         super(inGates);
     }
 
+    //performs a boolean 'Or' operation
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
         for (Boolean value : inValues) {
@@ -19,11 +20,13 @@ public class OrGate extends Gate {
         return false;
     }
 
+    //returns the gate's name
     @Override
     public String getName() {
         return "OR";
     }
 
+    //condenses the Or gate's structure into a simplified form
     @Override
     public Gate simplify() {
         int counter = 0;
@@ -40,6 +43,7 @@ public class OrGate extends Gate {
             }
         }
 
+        //if a single inGate remains, returns that gate
         if (counter == 1) {
             return inGates[indexOfUnique].simplify();
         }

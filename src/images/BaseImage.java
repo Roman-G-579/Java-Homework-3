@@ -10,11 +10,13 @@ public abstract class BaseImage implements Image {
         this.height = height;
     }
 
+    //returns the width
     @Override
     public int getWidth() {
         return width;
     }
 
+    //returns the height
     @Override
     public int getHeight() {
         return height;

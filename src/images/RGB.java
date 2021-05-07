@@ -2,6 +2,7 @@ package images;
 
 public class RGB {
 
+    //preset colors
     public static final RGB BLACK = new RGB(0);
     public static final RGB WHITE = new RGB(1);
     public static final RGB RED = new RGB(1, 0, 0);

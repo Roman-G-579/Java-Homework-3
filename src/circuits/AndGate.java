@@ -9,6 +9,7 @@ public class AndGate extends Gate {
         this.inGates = inGates;
     }
 
+    //performs a boolean 'And' operation
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
         for (Boolean value : inValues) {
@@ -22,11 +23,13 @@ public class AndGate extends Gate {
         return true;
     }
 
+    //returns the gate's name
     @Override
     public String getName() {
         return "AND";
     }
 
+    //condenses the And gate's structure into a simplified form
     @Override
     public Gate simplify() {
         int counter = 0;
@@ -42,6 +45,7 @@ public class AndGate extends Gate {
                 indexOfUnique = i;
             }
         }
+        //if a single inGate remains, returns that gate
         if (counter == 1) {
             return inGates[indexOfUnique].simplify();
         }

@@ -8,6 +8,7 @@ public abstract class Gate {
         this.inGates = inGates;
     }
 
+    //performs the relevant function of the current gate
     public boolean calc() throws CircuitException {
         boolean[] inValues = new boolean[inGates.length];
         int index = 0;
@@ -21,12 +22,14 @@ public abstract class Gate {
         return func(inValues);
     }
 
+
     protected abstract boolean func(boolean[] inValues) throws CircuitException;
 
     public abstract String getName();
 
     public abstract Gate simplify();
 
+    //prints the gate using the proper formatting
     public String toString() {
         //if the gate has no inner gates
         if (inGates.length == 0) {

@@ -10,11 +10,13 @@ public abstract class ImageDecorator implements Image {
         this.height = height;
     }
 
+    //returns the image's width
     @Override
     public int getWidth() {
         return width;
     }
 
+    //returns the image's height
     @Override
     public int getHeight() {
         return height;

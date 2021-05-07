@@ -8,6 +8,7 @@ public class FalseGate extends Gate {
         super(new Gate[]{});
     }
 
+    //creates an instance of the 'False' gate
     public static Gate instance() {
         if (falseGateInstance == null) {
             falseGateInstance = new FalseGate();
