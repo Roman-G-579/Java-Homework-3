@@ -9,6 +9,7 @@ public class Invert extends ImageDecorator {
         this.base = base;
     }
 
+    //returns the inverted color at the given coordinate
     public RGB get(int x, int y) {
         return base.get(x, y).invert();
     }

@@ -24,6 +24,7 @@ public class RGB {
         blue = grey;
     }
 
+    // returns a new color combining two colors, the max value of each base color is 1
     public static RGB superpose(RGB rgb1, RGB rgb2) {
         RGB newColor = new RGB(rgb1.red + rgb2.red
                 , rgb1.green + rgb2.green, rgb1.blue + rgb2.blue);
@@ -40,6 +41,7 @@ public class RGB {
         return newColor;
     }
 
+    //returns a color, using a formula
     public static RGB mix(RGB rgb1, RGB rgb2, double alpha) {
         return new RGB((alpha * rgb1.red + (1 - alpha) * rgb2.red),
                 (alpha * rgb1.green + (1 - alpha) * rgb2.green),
@@ -58,10 +60,12 @@ public class RGB {
         return blue;
     }
 
+    //returns the inverted color of the given one
     public RGB invert() {
         return new RGB(1 - red, 1 - green, 1 - blue);
     }
 
+    //returns a color using a parameter as a filter
     public RGB filter(RGB filter) {
         return new RGB(red * filter.red, green * filter.green, blue * filter.blue);
     }

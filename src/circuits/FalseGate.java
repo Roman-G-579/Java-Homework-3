@@ -14,7 +14,7 @@ public class FalseGate extends Gate {
         }
         return falseGateInstance;
     }
-
+    // returns false if the gate has a value and throws an exception if not
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
         for (Boolean value : inValues) {

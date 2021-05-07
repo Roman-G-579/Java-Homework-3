@@ -11,6 +11,7 @@ public class Filter extends ImageDecorator {
         this.filter = filter;
     }
 
+    //returns the filtered color at the given coordinate
     public RGB get(int x, int y) {
         return base.get(x, y).filter(filter);
     }

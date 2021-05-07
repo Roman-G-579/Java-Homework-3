@@ -10,11 +10,13 @@ public class VarGate extends Gate {
         this.name = name;
     }
 
+    //returns the gate's name with "V" before the name
     @Override
     public String getName() {
         return "V" + name;
     }
 
+    //returns the gate value. if it has no value, returns the gate itself
     @Override
     public Gate simplify() {
         if (val == null) {
@@ -23,6 +25,7 @@ public class VarGate extends Gate {
         return val ? TrueGate.instance() : FalseGate.instance();
     }
 
+    //returns the gate value. if it has no value, throws an exception
     @Override
     protected boolean func(boolean[] inValues) throws CircuitException {
         if (val == null) {

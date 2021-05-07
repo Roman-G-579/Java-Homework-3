@@ -26,9 +26,11 @@ public class Circle extends BaseImage {
     }
 
     public RGB get(int x, int y) {
-
+        //calculates the distance from the center of the circle
+        // to the given coordinate using Pythagoras's equation
         double distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
 
+        //decides the color in the given coordinate using the distance
         return distance <= radius ? RGB.mix(outside, center, distance / radius) : outside;
     }
 }
