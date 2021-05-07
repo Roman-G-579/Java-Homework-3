@@ -26,21 +26,31 @@ public class OrGate extends Gate {
 
     @Override
     public Gate simplify() {
+        int counter = 0;
+        int indexOfUnique = 0;
 
         //checks whether one of the inputs is a true gate
-        for (Gate inGate : inGates) {
-            if (inGate.simplify() instanceof TrueGate) {
+        for (int i = 0; i < inGates.length; i++) {
+            if (inGates[i].simplify() instanceof TrueGate) {
                 return TrueGate.instance();
+            }
+            if (!(inGates[i].simplify() instanceof FalseGate)) {
+                counter++;
+                indexOfUnique = i;
             }
         }
 
-        // skips all the false gates
+        if (counter == 1) {
+            return inGates[indexOfUnique].simplify();
+        }
+
+        // gets the index of the first non false gate
         int index = 0;
-        while (index < inGates.length && inGates[index].simplify() instanceof TrueGate) {
+        while (index < inGates.length && inGates[index].simplify() instanceof FalseGate) {
             index++;
         }
 
-        //if only one get remains, returns it
+        //if only one gate remains, returns it
         if (index == inGates.length - 1) {
             return inGates[index].simplify();
         }
@@ -51,12 +61,14 @@ public class OrGate extends Gate {
 
         //simplifies the remaining gates
         Gate[] remainingOrGates = new Gate[inGates.length - index];
+
         for (int i = 0; i < remainingOrGates.length; i++, index++) {
             //skips all the remaining false gates
             if (!(inGates[index].simplify() instanceof FalseGate)) {
                 remainingOrGates[i] = inGates[index].simplify();
             }
         }
-        return new OrGate(remainingOrGates);
+        Gate orange = new OrGate(remainingOrGates);
+        return orange;
     }
 }

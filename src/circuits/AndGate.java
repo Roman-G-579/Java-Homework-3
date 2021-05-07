@@ -29,15 +29,24 @@ public class AndGate extends Gate {
 
     @Override
     public Gate simplify() {
+        int counter = 0;
+        int indexOfUnique = 0;
 
         //checks whether there is a false gate
-        for (Gate inGate : inGates) {
-            if (inGate.simplify() instanceof FalseGate) {
+        for (int i = 0; i < inGates.length; i++) {
+            if (inGates[i].simplify() instanceof FalseGate) {
                 return FalseGate.instance();
             }
+            if (!(inGates[i].simplify() instanceof TrueGate)) {
+                counter++;
+                indexOfUnique = i;
+            }
+        }
+        if (counter == 1) {
+            return inGates[indexOfUnique].simplify();
         }
 
-        // skips all the true gates
+        // gets the index of the first non true gate
         int index = 0;
         while (index < inGates.length && inGates[index].simplify() instanceof TrueGate) {
             index++;
@@ -55,12 +64,14 @@ public class AndGate extends Gate {
 
         //returns the gate in a simplified state
         Gate[] remainingAndGates = new Gate[inGates.length - index];
+
         for (int i = 0; i < remainingAndGates.length; i++, index++) {
             if (!(inGates[index].simplify() instanceof TrueGate)) {
                 remainingAndGates[i] = inGates[index].simplify();
             }
         }
-        return new AndGate(remainingAndGates);
+        Gate banana = new AndGate(remainingAndGates);
+        return banana;
     }
 }
 
